@@ -170,8 +170,9 @@ class ActionUtterCompensatedShockOrangeDescription(Action):
         # ]
         # dispatcher.utter_message(text=f"Care este timpul CRT?", buttons=buttons)
         buttons = [
-            {"title": "Da", "payload": "da, am suferit soc compensat pe portocaliu"},
-            {"title": "Nu", "payload": "nu, nu am suferit soc compensat pe portocaliu"}
+            {"title": "Da", "payload": "da, portocaliu am soc compensat pe portocaliu"},
+            {"title": "Nu", "payload": "nu, nu portocaliu am soc compensat pe portocaliu"},
+            {"title": "Vreau explicatii", "payload": "vreau explicatii portocaliu soc compensat portocaliu"}
         ]
         dispatcher.utter_message(text=f"Ati suferit soc compensat?", buttons=buttons)
 
@@ -196,7 +197,8 @@ class ActionUtterCompensatedShockYellowDescription(Action):
         # dispatcher.utter_message(text=f"Care este timpul CRT?", buttons=buttons)
         buttons = [
             {"title": "Da", "payload": "da, am suferit soc compensat pe galben"},
-            {"title": "Nu", "payload": "nu, nu am suferit soc compensat pe galben"}
+            {"title": "Nu", "payload": "nu, nu am suferit soc compensat pe galben"},
+            {"title": "Vreau explicatii", "payload": "vreau explicatii soc compensat galben"}
         ]
         dispatcher.utter_message(text=f"Ati suferit soc compensat?", buttons=buttons)
 
@@ -214,8 +216,8 @@ class ActionUtterCompensatedShockOrangeDescription(Action):
         description = AskOpenAI.Ask("termenul medical soc compensat")
         
         buttons = [
-            {"title": "Da", "payload": "da, am suferit soc compensat pe portocaliu"},
-            {"title": "Nu", "payload": "nu, nu am suferit soc compensat pe portocaliu"}
+            {"title": "Da", "payload": "da, portocaliu am soc compensat pe portocaliu"},
+            {"title": "Nu", "payload": "nu, nu portocaliu am soc compensat pe portocaliu"}
         ]
         dispatcher.utter_message(text=f"Ati suferit soc compensat?", buttons=buttons)
 
@@ -255,6 +257,46 @@ class ActionUtterCRTNoPainDescription(Action):
             {"title": "> 2 secunde", "payload": "timp CRT mic fara durere"},
             {"title": "<= 2 secunde", "payload": "timp CRT normal fara durere"},
             {"title": "Nu stiu", "payload": "timp CRT normal fara durere"}
+        ]
+        dispatcher.utter_message(text=f"O scurta definitie: {description}.<br><br>Care este timpul CRT?", buttons=buttons)
+
+        return []
+    
+class ActionUtterCRTNoShockOrangeDescription(Action):
+
+    def name(self) -> Text:
+        return "action_utter_crt_no_shock_orange_description"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        description = AskOpenAI.Ask("termenul medical soc compensat")
+        
+        buttons = [
+            {"title": "> 2 secunde", "payload": "fara soc portocaliu timp crt mare mare mare cod portocaliu"},
+            {"title": "<= 2 secunde", "payload": "fara soc portocaliu timp crt normal cod portocaliu"},
+            {"title": "Nu stiu", "payload": "fara soc portocaliu timp crt normal cod portocaliu"}
+        ]
+        dispatcher.utter_message(text=f"O scurta definitie: {description}.<br><br>Care este timpul CRT?", buttons=buttons)
+
+        return []
+    
+class ActionUtterCRTNoShockYellowDescription(Action):
+
+    def name(self) -> Text:
+        return "action_utter_crt_no_shock_yellow_description"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        description = AskOpenAI.Ask("termenul medical soc compensat")
+        
+        buttons = [
+            {"title": "> 2 secunde", "payload": "cod galben timp crt mare mare mare cod galben"},
+            {"title": "<= 2 secunde", "payload": "galben fara soc timp crt normal cod galben"},
+            {"title": "Nu stiu", "payload": "galben fara soc timp crt normal cod galben"}
         ]
         dispatcher.utter_message(text=f"O scurta definitie: {description}.<br><br>Care este timpul CRT?", buttons=buttons)
 

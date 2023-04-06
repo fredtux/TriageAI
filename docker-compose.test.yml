@@ -1,0 +1,28 @@
+version: '3.0'
+services:
+  rasa_actions:
+    build:
+      context: ./rasa/actions
+      dockerfile: Dockerfile
+    container_name: rasa_actions
+    env_file:
+      - .env
+    ports:
+      - 5055:5055
+    volumes:
+      - ./rasa/actions:/app/actions
+  rasa:
+    build:
+      context: ./rasa
+      dockerfile: Dockerfile
+    container_name: rasa
+    links:
+      - rasa_actions
+    ports:
+      - 5005:5005
+    volumes:
+      - ./rasa/:/app
+    command:
+      - test
+    depends_on:
+      - rasa_actions

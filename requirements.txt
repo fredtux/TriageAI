@@ -84,6 +84,7 @@ preshed==3.0.8
 prompt-toolkit==3.0.28
 protobuf==3.19.6
 psycopg2-binary==2.9.6
+pyaml==21.10.1
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycparser==2.21

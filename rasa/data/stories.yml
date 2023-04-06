@@ -62,13 +62,6 @@ stories:
       - intent: user_seizing_bad
       - action: utter_red_code
 
-  - story: seizing_red_code
-    steps:
-      - checkpoint: airway_blue_code
-      - intent: user_seizing_good
-      - action: utter_hemmorage
-      - checkpoint: seizing_blue_code
-
   - story: seizing_no_problem
     steps:
       - checkpoint: airway_blue_code
@@ -251,7 +244,6 @@ stories:
       - intent: user_vital_signs_yellow_no_problem
       - action: utter_green_code
 
-
 # Pain
 # No problem
   - story: crt_wants_details
@@ -266,13 +258,37 @@ stories:
       - checkpoint: pain_no_problem
       - intent: user_crt_no_pain_no_problem
       - action: utter_vital_signs_no_problem
-      - checkpoint: vital_signs_no_problem
+      - checkpoint: ucounsciusness_vital_signs_no_problem_no_problem
 
   - story: crt_orange_code
     steps:
       - checkpoint: pain_no_problem
       - intent: user_crt_no_pain_orange
       - action: utter_orange_code
+
+# Vital signs
+## No problem
+  - story: unconsciusness_vital_signs_no_problem
+    steps:
+      - checkpoint: ucounsciusness_vital_signs_no_problem_no_problem
+      - intent: user_unconsciusness_vital_signs_no_problem
+      - action: utter_unconsciusness_vital_signs_no_problem
+      - intent: user_unconsciusness_no_problem
+      - action: utter_green_code
+
+  - story: unconsciusness_vital_signs_with_problem
+    steps:
+      - checkpoint: ucounsciusness_vital_signs_no_problem_no_problem
+      - intent: user_unconsciusness_vital_signs_no_problem
+      - action: utter_unconsciusness_vital_signs_no_problem
+      - intent: user_unconsciusness_vital_signs_with_problem
+      - action: utter_yellow_code
+  
+  - story: unconsciusness_vital_signs_yes
+    steps:
+      - checkpoint: ucounsciusness_vital_signs_no_problem_no_problem
+      - intent: user_unconsciusness_vital_signs_yes
+      - action: utter_yellow_code
 
 # Compensated shock
 # Orange - Severe reported pain
@@ -316,3 +332,60 @@ stories:
       - intent: user_compensated_shock_yellow_no_problem
       - action: utter_crt_no_shock_yellow
       - checkpoint: shock_yellow_no_problem
+
+# CRT
+# No shock
+  - story: crt_no_shock_wants_details
+    steps:
+      - checkpoint: shock_yellow_no_problem
+      - intent: user_crt_no_shock_yellow_wants_details
+      - action: action_utter_crt_no_shock_yellow_description
+      - checkpoint: shock_yellow_no_problem
+
+  - story: crt_no_shock_orange_code
+    steps:
+      - checkpoint: shock_yellow_no_problem
+      - intent: user_crt_no_shock_yellow_problem
+      - action: utter_yellow_code
+    
+  - story: crt_no_shock_no_problem
+    steps:
+      - checkpoint: shock_yellow_no_problem
+      - intent: user_crt_no_shock_no_problem
+      - action: utter_problem_duration
+      - checkpoint: shock_yellow_no_problem
+
+
+# Maybe blue
+  - story: crt_no_shock_blue
+    steps:
+      - checkpoint: shock_yellow_no_problem
+      - intent: small_duration_no_problem
+      - action: utter_blue_code
+  
+  - story: crt_no_shock_blue_green_code
+    steps:
+      - checkpoint: shock_yellow_no_problem
+      - intent: small_duration_problem
+      - action: utter_green_code
+
+# Crt
+## No problem
+  - story: crt_no_problem
+    steps:
+      - checkpoint: shock_orange_no_problem
+      - intent: user_crt_no_shock_orange_no_problem
+      - action: utter_yellow_code
+
+  - story: crt_orange_code
+    steps:
+      - checkpoint: shock_orange_no_problem
+      - intent: user_crt_no_shock_orange_orange
+      - action: utter_orange_code
+
+  - story: crt_explanation
+    steps:
+      - checkpoint: shock_orange_no_problem
+      - intent: user_crt_no_shock_orange_explanation
+      - action: action_utter_crt_no_shock_orange_description
+      - checkpoint: shock_orange_no_problem

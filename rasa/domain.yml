@@ -45,6 +45,20 @@ intents:
   - user_crt_no_pain_orange
   - user_vital_signs_yellow_has_problem
   - user_vital_signs_yellow_no_problem
+  - user_unconsciusness_vital_signs_no
+  - user_unconsciusness_vital_signs_no_problem
+  - user_unconsciusness_vital_signs_yes
+  - user_unconsciusness_vital_signs_with_problem
+  - user_unconsciusness_no_problem
+  - user_crt_no_shock_orange_orange
+  - user_crt_no_shock_orange_no_problem
+  - user_crt_no_shock_orange_explanation
+  - user_crt_no_shock_yellow_wants_details
+  - user_crt_no_shock_yellow_no_problem
+  - user_crt_no_shock_yellow_problem
+  - small_duration_no_problem
+  - small_duration_problem
+  - user_crt_no_shock_no_problem
 
 responses:
   utter_greet:
@@ -94,19 +108,19 @@ responses:
   - text: "Aveti convulsii?"
     buttons:
       - title: "Da"
-        payload: "desigur, am convulsii convulsii"
+        payload: "sufar de convulsii"
       - title: "Nu"
-        payload: "nu am convulsii convulsii"
+        payload: "nu, nu sufar de convulsii"
       - title: "Vreau explicatii"
-        payload: "vreau explicatii despre convulsii convulsii"
+        payload: "vreau explicatii despre convulsii"
 
   utter_hemmorage:
   - text: "Aveti hemoragie?"
     buttons:
       - title: "Da"
-        payload: "desigur ca am hemoragie"
+        payload: "da, imi curge sange"
       - title: "Nu"
-        payload: "nu sufar de hemoragie"
+        payload: "nu, nu imi curge sange"
       - title: "Vreau explicatii"
         payload: "vreau explicatii despre hemoragie"
 
@@ -147,11 +161,11 @@ responses:
   - text: "Cum evaluati semnele vitale pentru varsta dumneavoastra?"
     buttons:
       - title: "Normale"
-        payload: "nu, nu am probleme cu semnele vitale pe galben"
+        payload: "galben nu, nu am probleme cu semnele vitale pe galben"
       - title: "Tensiune ridicata"
-        payload: "da, semnele vitale sunt alterate pe galben"
+        payload: "galben da, semnele vitale sunt alterate pe galben"
       - title: "Puls ridicat"
-        payload: "da, semnele vitale sunt alterate pe galben"
+        payload: "galben da, semnele vitale sunt alterate pe galben"
 
   utter_vital_signs_no_problem:
   - text: "Cum evaluati semnele vitale pentru varsta dumneavoastra?"
@@ -159,7 +173,7 @@ responses:
       - title: "Normale"
         payload: "semne vitale normale fara problema"
       - title: "Tensiune ridicata"
-        payload: "semne vitale anormale fara problema"
+        payload: "nu, semne vitale anormale anormale fara problema"
       - title: "Puls ridicat"
         payload: "semne vitale anormale fara problema"
 
@@ -201,25 +215,33 @@ responses:
   - text: "Ce tip de reumplere capilara aveti?"
     buttons:
       - title: ">2 secunde"
-        payload: "timp crt mare cod galben"
+        payload: "cod galben timp crt mare mare mare cod galben"
       - title: "<= 2 secunde"
-        payload: "timp crt normal cod galben"
+        payload: "galben fara soc timp crt normal cod galben"
       - title: "Nu stiu"
-        payload: "timp crt normal cod galben"
+        payload: "galben fara soc timp crt normal cod galben"
       - title: "Vreau explicatii"
-        payload: "vreau explicatii despre crt cod galben"
+        payload: "galben vreau explicatii despre crt fara soc pe galben"
 
   utter_crt_no_shock_orange:
   - text: "Ce tip de reumplere capilara aveti?"
     buttons:
       - title: ">2 secunde"
-        payload: "timp crt mare cod portocaliu"
+        payload: "fara soc portocaliu timp crt mare mare mare cod portocaliu"
       - title: "<= 2 secunde"
-        payload: "timp crt normal cod portocaliu"
+        payload: "fara soc portocaliu timp crt normal cod portocaliu"
       - title: "Nu stiu"
-        payload: "timp crt normal cod portocaliu"
+        payload: "fara soc portocaliu timp crt normal cod portocaliu"
       - title: "Vreau explicatii"
-        payload: "vreau explicatii despre crt cod portocaliu"
+        payload: "fara soc vreau explicatii despre crt cod portocaliu"
+
+  utter_unconsciusness_vital_signs_no_problem:
+  - text: "Aveti un istoric de lipsa de constienta?"
+    buttons:
+      - title: "Da"
+        payload: "da, am istoric de lipsa de constienta fara probleme"
+      - title: "Nu"
+        payload: "nu, nu am istoric de lipsa de constienta fara probleme"
 
 actions:
   - action_utter_airway_description
@@ -234,6 +256,8 @@ actions:
   - action_utter_compensated_shock_yellow_description
   - action_utter_compensated_shock_orange_description
   - action_crt_no_pain_description
+  - action_utter_crt_no_shock_orange_description
+  - action_utter_crt_no_shock_yellow_description
 
 session_config:
   session_expiration_time: 60

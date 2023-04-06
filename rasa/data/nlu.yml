@@ -71,13 +71,13 @@ nlu:
 
 - intent: user_seizing_good
   examples: |
-    - nu am convulsii convulsii
-    - nu sufar de convulsii convulsii
+    - nu sufar de convulsii
+    - nu, nu sufar de convulsii
 
 - intent: user_seizing_bad
   examples: |
-    - da, am convulsii convulsii
-    - desigur ca am convulsii convulsii
+    - sufar de convulsii
+    - desigur ca am convulsii
 
 # Hemmorage
 - intent: hemmorage_red
@@ -97,12 +97,12 @@ nlu:
 
 - intent: user_hemmorage_good
   examples: |
-    - nu am hemoragie
-    - nu sufar de hemoragie
+    - nu, nu imi curge sange
+    - nu imi curge sange
 - intent: user_hemmorage_bad
   examples: |
-    - da, am hemoragie
-    - desigur ca am hemoragie
+    - da, imi curge sange
+    - desigur ca imi curge sange
 - intent: user_hemmorage_wants_details
   examples: |
     - vreau explicatii despre hemoragie
@@ -325,18 +325,18 @@ nlu:
 # Orange
 - intent: user_compensated_shock_orange_wants_details
   examples: |
-    - vreau explicatii despre socul compensat pe portocaliu
-    - imi doresc explicatii despre socul compensat pe portocaliu
+    - vreau explicatii portocaliu soc compensat portocaliu
+    - imi doresc explicatii portocaliu despre socul compensat portocaliu
 
 - intent: user_compensated_shock_orange_orange
   examples: |
-    - da, am suferit soc compensat pe portocaliu
-    - da, socul este compensat pe portocaliu
+    - da, portocaliu am soc compensat pe portocaliu
+    - da, portocaliu socul compensat este pe portocaliu
 
 - intent: user_compensated_shock_orange_no_problem
   examples: |
-    - nu, nu am suferit soc compensat pe portocaliu
-    - nu, socul nu este compensat pe portocaliu
+    - nu, nu portocaliu am soc compensat pe portocaliu
+    - nu, portocaliu socul nu este compensat pe portocaliu
 
 # Yellow
 - intent: user_compensated_shock_yellow_wants_details
@@ -374,10 +374,75 @@ nlu:
 # Yellow
 - intent: user_vital_signs_yellow_has_problem
   examples: |
-    - da, am probleme cu semnele vitale pe galben
-    - da, semnele vitale sunt alterate pe galben
+    - galben da, am probleme cu semnele vitale pe galben
+    - galben da, semnele vitale sunt alterate pe galben
 
 - intent: user_vital_signs_yellow_no_problem
   examples: |
-    - nu, nu am probleme cu semnele vitale pe galben
-    - nu, semnele vitale nu sunt alterate pe galben
+    - galben nu, nu am probleme cu semnele vitale pe galben
+    - galben nu, semnele vitale nu sunt alterate pe galben
+
+# No problem
+- intent: user_unconsciusness_vital_signs_no_problem
+  examples: |
+    - semne vitale normale fara problema
+    - semne vitale normale fara probleme
+
+- intent: user_unconsciusness_vital_signs_yes
+  examples: |
+    - nu, semne vitale anormale anormale fara problema
+    - nu, semne vitale anormale anormale fara probleme
+
+- intent: user_unconsciusness_vital_signs_with_problem
+  examples: |
+    - da, am istoric de lipsa de constienta fara probleme
+    - da, am un istoric de lipsa de constienta fara probleme
+
+- intent: user_unconsciusness_no_problem
+  examples: |
+    - nu, nu am istoric de lipsa de constienta fara probleme
+    - nu, nu am un istoric de lipsa de constienta fara probleme
+
+# Crt
+## Orange
+- intent: user_crt_no_shock_orange_no_problem
+  examples: |
+    - fara soc portocaliu timp crt normal cod portocaliu
+    - fara soc portocaliu timp crt normal fara soc portocaliu
+
+- intent: user_crt_no_shock_orange_orange
+  examples: |
+    - fara soc portocaliu timp crt mare mare mare cod portocaliu
+    - fara soc portocaliu timp crt mare mare mare fara soc portocaliu
+
+- intent: user_crt_no_shock_orange_explanation
+  examples: |
+    - fara soc vreau explicatii despre crt cod portocaliu
+    - fara soc imi doresc explicatii despre crt cod portocaliu
+
+## Yellow
+- intent: user_crt_no_shock_yellow_wants_details
+  examples: |
+    - galben vreau explicatii despre crt fara soc pe galben
+    - galben imi doresc explicatii despre crt fara soc pe galben
+
+- intent: user_crt_no_shock_yellow_no_problem
+  examples: |
+    - galben fara soc timp crt normal cod galben
+    - galben fara soc timp crt normal fara soc galben
+
+- intent: user_crt_no_shock_yellow_problem
+  examples: |
+    - cod galben timp crt mare mare mare cod galben
+    - cod galben timp crt mare mare mare fara soc galben
+
+# Maybe blue
+- intent: utter_blue_code
+  examples: |
+    - Mai mult de 48 ore
+    - mult mai mult de 48 ore
+
+- intent: small_duration_problem
+  examples: |
+    - Mai putin de 48 ore
+    - mult mai putin de 48 ore
