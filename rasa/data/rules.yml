@@ -1,0 +1,20 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: bot_challenge
+
+
+# - rule: Invalid pain scale
+#   steps:
+#   - intent: user_pain_scale
+#   - action: utter_invalid_pain_scale
+#   - action: utter_pain_scale

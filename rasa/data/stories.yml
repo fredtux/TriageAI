@@ -1,0 +1,237 @@
+version: "3.1"
+
+# Airway
+stories:
+  - story: airway_red_code
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: user_airway_bad
+    - action: utter_clarify_airway
+    - intent: user_airway_red
+    - action: utter_red_code
+
+  - story: airway_details_blue_code
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: user_airway_wants_details
+    - action: action_utter_airway_description
+    - intent: user_airway_blue
+    - action: utter_hemmorage
+    - checkpoint: airway_blue_code
+
+  - story: airway_details_red_code
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: user_airway_wants_details
+    - action: action_utter_airway_description
+    - intent: user_airway_red
+    - action: utter_red_code
+
+  - story: airway_blue_code
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: user_airway_bad
+    - action: utter_clarify_airway
+    - intent: user_airway_blue
+    - action: utter_seizing
+    - checkpoint: airway_blue_code
+
+  - story: airway_no_problem
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: user_airway_good
+    - action: utter_seizing
+    - checkpoint: airway_blue_code
+
+# Seizing
+  - story: seizing_wants_details
+    steps:
+      - checkpoint: airway_blue_code
+      - intent: user_seizing_wants_details
+      - action: action_utter_seizing_description
+      - checkpoint: airway_blue_code
+
+  - story: seizing_red_code
+    steps:
+      - checkpoint: airway_blue_code
+      - intent: user_seizing_bad
+      - action: utter_red_code
+
+  - story: seizing_red_code
+    steps:
+      - checkpoint: airway_blue_code
+      - intent: user_seizing_good
+      - action: utter_hemmorage
+      - checkpoint: seizing_blue_code
+
+  - story: seizing_no_problem
+    steps:
+      - checkpoint: airway_blue_code
+      - intent: user_seizing_good
+      - action: utter_hemmorage
+      - checkpoint: seizing_blue_code
+
+
+# Hemmorage
+  - story: hemmorage_red_code
+    steps:
+      - checkpoint: seizing_blue_code
+      - intent: user_hemmorage_bad
+      - action: utter_hemmorage_type
+      - intent: hemmorage_red
+      - action: utter_red_code
+
+  - story: hemmorage_wants_details_red_code
+    steps:
+      - checkpoint: seizing_blue_code
+      - intent: user_hemmorage_wants_details
+      - action: action_utter_hemmorage_description
+      - intent: hemmorage_red
+      - action: utter_red_code
+
+  - story: hemmorage_wants_details_blue_code
+    steps:
+      - checkpoint: seizing_blue_code
+      - intent: user_hemmorage_wants_details
+      - action: action_utter_hemmorage_description
+      - intent: hemmorage_blue
+      - action: utter_pain_hemmorage
+      - checkpoint: hemmorage_blue_code 
+
+  - story: hemmorage_blue_code
+    steps:
+      - checkpoint: seizing_blue_code
+      - intent: user_hemmorage_bad
+      - action: utter_hemmorage_type 
+      - intent: hemmorage_blue
+      - action: utter_pain_hemmorage
+      - checkpoint: hemmorage_blue_code 
+
+  - story: hemmorage_no_problem
+    steps:
+      - checkpoint: seizing_blue_code
+      - intent: user_hemmorage_good
+      - action: utter_gcs
+      - checkpoint: no_hemmorage
+
+# Pain
+## Hemmorage
+  - story: pain_hemmorage_wants_details_check_code
+    steps:
+      - checkpoint: hemmorage_blue_code
+      - intent: user_pain_hemmorage_wants_details
+      - action: action_utter_pain_hemmorage_description
+      - checkpoint: hemmorage_blue_code
+
+  - story: pain_hemmorage_orange_code
+    steps:
+      - checkpoint: hemmorage_blue_code
+      - intent: user_pain_hemmorage_orange
+      - action: utter_orange_code
+  
+  - story: pain_hemmorage_yellow_code
+    steps:
+      - checkpoint: hemmorage_blue_code
+      - intent: user_pain_hemmorage_yellow
+      - action: utter_yellow_code
+
+  - story: pain_hemmorage_invalid
+    steps:
+      - checkpoint: hemmorage_blue_code
+      - intent: user_pain_hemmorage_invalid
+      - action: utter_pain_hemmorage
+      - checkpoint: hemmorage_blue_code
+
+# GCS
+  - story: gcs_wants_details
+    steps:
+      - checkpoint: no_hemmorage
+      - intent: user_gcs_wants_details
+      - action: action_utter_gcs_description
+      - checkpoint: no_hemmorage
+
+  - story: gcs_red_code
+    steps:
+      - checkpoint: no_hemmorage
+      - intent: user_gcs_bad
+      - action: utter_red_code
+
+  - story: gcs_orange_code
+    steps:
+      - checkpoint: no_hemmorage
+      - intent: user_gcs_orange
+      - action: utter_orange_code
+
+  - story: gcs_blue_code
+    steps:
+      - checkpoint: no_hemmorage
+      - intent: user_gcs_blue
+      - action: utter_oxygen_saturation
+      - checkpoint: good_gcs
+
+# Oxygen saturation
+  - story: oxygen_saturation_wants_details
+    steps:
+      - checkpoint: good_gcs
+      - intent: user_oxygen_saturation_wants_details
+      - action: action_utter_oxygen_saturation_description
+      - checkpoint: good_gcs
+  
+  - story: oxygen_saturation_red_code
+    steps:
+      - checkpoint: good_gcs
+      - intent: user_oxygen_saturation_red
+      - action: utter_red_code
+
+  - story: oxygen_saturation_orange_code
+    steps:
+      - checkpoint: good_gcs
+      - intent: user_oxygen_saturation_orange
+      - action: utter_orange_code
+  
+  - story: oxygen_saturation_yellow_code
+    steps:
+      - checkpoint: good_gcs
+      - intent: user_oxygen_saturation_blue
+      - action: utter_pain_scale
+      - checkpoint: good_oxygen_saturation
+
+# Pain scale
+  - story: pain_scale_wants_details
+    steps:
+      - checkpoint: good_oxygen_saturation
+      - intent: user_pain_scale_wants_details
+      - action: action_utter_pain_scale_description
+      - checkpoint: good_oxygen_saturation
+
+  - story: pain_scale_orange_code
+    steps:
+      - checkpoint: good_oxygen_saturation
+      - intent: user_pain_scale_orange
+      - action: action_compensated_shock_orange
+      - checkpoint: pain_scale_orange_code
+
+  - story: pain_scale_yellow_code
+    steps:
+      - checkpoint: good_oxygen_saturation
+      - intent: user_pain_scale_yellow
+      - action: action_compensated_shock_yellow
+      - checkpoint: pain_scale_yellow_code
+  
+  - story: pain_scale_green_code
+    steps:
+      - checkpoint: good_oxygen_saturation
+      - intent: user_pain_scale_green
+      - action: utter_green_code
+  
+  - story: pain_scale_no_problem
+    steps:
+      - checkpoint: good_oxygen_saturation
+      - intent: user_pain_scale_no_problem
+      - action: utter_problem_duration
+      - checkpoint: pain_no_problem

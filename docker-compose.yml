@@ -1,0 +1,41 @@
+version: '3.0'
+services:
+  rasa_actions:
+    build:
+      context: ./rasa/actions
+      dockerfile: Dockerfile
+    container_name: rasa_actions
+    env_file:
+      - .env
+    ports:
+      - 5055:5055
+    volumes:
+      - ./rasa/actions:/app/actions
+  rasa:
+    build:
+      context: ./rasa
+      dockerfile: Dockerfile
+    container_name: rasa
+    links:
+      - rasa_actions
+    ports:
+      - 5005:5005
+    volumes:
+      - ./rasa/:/app
+    command:
+      - run
+      - --debug
+    depends_on:
+      - rasa_actions
+  webapp:
+    image: nginx:latest
+    links:
+      - rasa
+    ports:
+      - 8080:80
+    volumes:
+      - ./Chatbot-Widget/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./Chatbot-Widget:/usr/share/nginx/Chatbot-Wdiget
+    depends_on:
+      - rasa
+      - rasa_actions

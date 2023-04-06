@@ -1,0 +1,322 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - conversation_start
+    - start conversation
+
+- intent: goodbye
+  examples: |
+    - pa
+    - la revedere
+    - o zi buna
+    - adio
+    - o zi frumoasa
+    - gata
+    - am terminat
+    - am terminat de vorbit
+
+- intent: bot_challenge
+  examples: |
+    - esti bot?
+    - esti om?
+    - esti robot?
+    - esti uman?
+    - esti umana?
+    - esti o persoana?
+    - esti robot?
+
+# Airway
+- intent: user_airway_bad
+  examples: |
+    - am caile respiratorii afectate
+    - am caile respiratorii afectate grav
+- intent: user_airway_good
+  examples: |
+    - respir bine
+    - nu am probleme cu caile respiratorii
+- intent: user_airway_wants_details
+  examples: |
+    - vreau explicatii despre caile respiratorii
+    - imi doresc explicatii despre caile respiratorii
+
+- intent: user_airway_blue
+  examples: |
+    - Am o tuse
+    - Respir greu
+    - Am dureri
+    - Am dureri
+    - Am dureri
+    - Am dureri usoare
+    - Am dureri moderate
+    - Probleme usoare
+    - Probleme moderate
+
+- intent: user_airway_red
+  examples: |
+    - Am dureri puternice
+    - Am dureri foarte puternice
+    - Nu pot respira
+    - Nu pot respira deloc
+    - Ma sufoc
+    - Extrem de grave
+    - Insuportabile
+
+# Seizing
+- intent: user_seizing_wants_details
+  examples: |
+    - vreau explicatii despre convulsii
+    - imi doresc explicatii despre convulsii
+
+- intent: user_seizing_good
+  examples: |
+    - nu am convulsii
+    - nu sufar de convulsii
+
+- intent: user_seizing_bad
+  examples: |
+    - da, am convulsii
+    - desigur ca am convulsii
+
+# Hemmorage
+- intent: hemmorage_red
+  examples: |
+    - profunda
+    - foarte profunda
+    - hemoragie grava
+    - hemoragie profunda
+    - hemoragie foarte profunda
+    - am hemoragie profunda
+    - am hemoragie foarte profunda
+- intent: hemmorage_blue
+  examples: |
+    - hemoragie usoara
+    - am hemoragie usoara
+    - curge putin sange
+
+- intent: user_hemmorage_good
+  examples: |
+    - nu am hemoragie
+    - nu sufar de hemoragie
+- intent: user_hemmorage_bad
+  examples: |
+    - da, am hemoragie
+    - desigur ca am hemoragie
+- intent: user_hemmorage_wants_details
+  examples: |
+    - vreau explicatii despre hemoragie
+    - imi doresc explicatii despre hemoragie
+
+# Pain
+## Hemmorage
+- intent: user_pain_hemmorage_wants_details
+  examples: |
+    - vreau explicatii despre scara durerii
+    - imi doresc explicatii despre scara durerii
+    - nu cunosc scara durerii
+    - nu inteleg scara durerii
+
+- intent: user_pain_hemmorage_orange
+  examples: |
+    - 7
+    - 8
+    - 9
+    - 10
+    - nivelul 7
+    - nivelul 8
+    - nivelul 9
+    - nivelul 10
+    - as zice ca nivelul 7
+    - as zice ca nivelul 8
+    - as zice ca nivelul 9
+    - as zice ca nivelul 10
+    - cred ca nivelul 7
+    - cred ca nivelul 8
+    - cred ca nivelul 9
+    - cred ca nivelul 10
+
+- intent: user_pain_hemmorage_yellow
+  examples: |
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - nivelul 1
+    - nivelul 2
+    - nivelul 3
+    - nivelul 4
+    - nivelul 5
+    - nivelul 6
+    - as zice ca nivelul 1
+    - as zice ca nivelul 2
+    - as zice ca nivelul 3
+    - as zice ca nivelul 4
+    - as zice ca nivelul 5
+    - as zice ca nivelul 6
+    - cred ca nivelul 1
+    - cred ca nivelul 2
+    - cred ca nivelul 3
+    - cred ca nivelul 4
+    - cred ca nivelul 5
+    - cred ca nivelul 6
+
+- intent: user_pain_hemmorage_invalid
+  examples: |
+    - 0
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 17
+    - 18
+    - 19
+    - 20
+    - 100
+    - 1000
+    - 10000
+    - 100000
+    - 666
+    - peste 10
+    - sub 1
+    - sub 0
+    - nivelul 0
+    - nivelul 11
+    - nivelul 12
+    - nivelul 13
+    - nivelul 14
+    - nivelul 15
+    - nivelul 16
+    - nivelul 17
+    - nivelul 18
+    - nivelul 19
+    - nivelul 20
+    - nivelul 100
+    - nivelul 1000
+    - nivelul 10000
+    - nivelul 100000
+    - nivelul 666
+    - nivelul peste 10
+    - nivelul sub 1
+    - nivelul sub 0
+    - as zice ca nivelul 0
+    - as zice ca nivelul 11
+    - as zice ca nivelul 12
+    - as zice ca nivelul 13
+    - as zice ca nivelul 14
+    - as zice ca nivelul 15
+    - as zice ca nivelul 16
+    - as zice ca nivelul 17
+    - as zice ca nivelul 18
+    - as zice ca nivelul 19
+    - as zice ca nivelul 20
+    - as zice ca nivelul 100
+    - as zice ca nivelul 1000
+    - as zice ca nivelul 10000
+    - as zice ca nivelul 100000
+    - as zice ca nivelul 666
+    - as zice ca nivelul peste 10
+    - as zice ca nivelul sub 1
+    - as zice ca nivelul sub 0
+    - cred ca nivelul 0
+    - cred ca nivelul 11
+    - cred ca nivelul 12
+    - cred ca nivelul 13
+    - cred ca nivelul 14
+    - cred ca nivelul 15
+    - cred ca nivelul 16
+    - cred ca nivelul 17
+    - cred ca nivelul 18
+    - cred ca nivelul 19
+    - cred ca nivelul 20
+    - cred ca nivelul 100
+    - cred ca nivelul 1000
+    - cred ca nivelul 10000
+    - cred ca nivelul 100000
+    - cred ca nivelul 666
+    - cred ca nivelul peste 10
+    - cred ca nivelul sub 1
+    - cred ca nivelul sub 0
+
+# GCS
+- intent: user_gcs_wants_details
+  examples: |
+    - vreau explicatii despre GCS
+    - imi doresc explicatii despre GCS
+
+- intent: user_gcs_bad
+  examples: |
+    - GCS mic
+    - GCS foarte mic
+
+- intent: user_gcs_orange
+  examples: |
+    - GCS mediu
+    - GCS decent
+
+- intent: user_gcs_blue
+  examples: |
+    - GCS mare
+    - GCS foarte mare
+
+# Oxygen saturation
+- intent: user_oxygen_saturation_red
+  examples: |
+    - saturatie oxigen mica
+    - saturatie de oxigen mica
+    - saturatie mica
+
+- intent: user_oxygen_saturation_orange
+  examples: |
+    - saturatie oxigen medie
+    - saturatie de oxigen medie
+    - saturatie medie
+
+- intent: user_oxygen_saturation_blue
+  examples: |
+    - saturatie oxigen mare
+    - saturatie de oxigen mare
+    - saturatie mare
+
+- intent: user_oxygen_saturation_wants_details
+  examples: |
+    - vreau explicatii despre saturatia de oxigen
+    - imi doresc explicatii despre saturatia de oxigen
+
+# Pain scale
+- intent: user_pain_scale_wants_details
+  examples: |
+    - vreau explicatii despre scara durerii de la 1 la 10
+    - imi doresc explicatii despre scara durerii de la 1 la 10
+
+- intent: user_pain_scale_orange
+  examples: |
+    - durere severa
+    - severitate crescuta a durerii
+    - dureri severe
+
+- intent: user_pain_scale_yellow
+  examples: |
+    - durere moderata
+    - severitate moderata a durerii
+    - dureri moderate
+
+- intent: user_pain_scale_green
+  examples: |
+    - durere usoara
+    - severitate usoara a durerii
+    - dureri usoare
+
+- intent: user_pain_scale_no_problem
+  examples: |
+    - fara durere
+    - fara dureri
+    - fara probleme
+    - nu am durere
+    - nu am dureri
+    - nu ma doare nimic
+    - nicio durere

@@ -1,0 +1,190 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - bot_challenge
+  - user_airway_bad
+  - user_airway_good
+  - user_airway_red
+  - user_airway_blue
+  - user_airway_wants_details
+  - user_hemmorage_good
+  - user_hemmorage_bad
+  - user_hemmorage_wants_details
+  - hemmorage_red
+  - hemmorage_blue
+  - user_seizing_wants_details
+  - user_seizing_good
+  - user_seizing_bad
+  - user_pain_hemmorage_wants_details
+  - user_pain_hemmorage_orange
+  - user_pain_hemmorage_yellow
+  - user_pain_hemmorage_invalid
+  - user_gcs_wants_details
+  - user_gcs_bad
+  - user_gcs_orange
+  - user_gcs_blue
+  - user_oxygen_saturation_red
+  - user_oxygen_saturation_orange
+  - user_oxygen_saturation_blue
+  - user_oxygen_saturation_wants_details
+  - user_pain_scale_wants_details
+  - user_pain_scale_orange
+  - user_pain_scale_yellow
+  - user_pain_scale_green
+  - user_pain_scale_no_problem
+
+responses:
+  utter_greet:
+  - text: "Salut! Sunt Sara, asistentx tau AI 🩺 <br><br> Aveti probleme cu caile respiratorii?"
+    buttons:
+    - title: "Da"
+      payload: "am caile respiratorii afectate"
+    - title: "Nu"
+      payload: "respir bine"
+    - title: "Vreau explicatii"
+      payload: "vreau explicatii despre caile respiratorii"
+
+  utter_goodbye:
+  - text: "Sanatate!"
+
+  bot_challenge:
+  - text: "Sunt asistentx virtual dezvoltat in Rasa si integrez API call-uri catre OpenAI."
+
+  utter_airway_ok:
+  - text: "[Pas urmator]"
+
+  utter_airway_dont_know:
+  - text: "[Pas ChatGPT]"
+
+  utter_red_code:
+  - text: "🚨🚨🚨 COD ROSU 🚨🚨🚨"
+
+  utter_orange_code:
+  - text: "🟠🟠🟠 COD PORTOCALIU 🟠🟠🟠"
+
+  utter_yellow_code:
+  - text: "🟡🟡🟡 COD GALBEN 🟡🟡🟡"
+
+  utter_green_code:
+  - text: "🟢🟢🟢 COD VERDE 🟢🟢🟢"
+
+  utter_blue_code:
+  - text: "🔵🔵🔵 COD ALBASTRU 🔵🔵🔵"
+
+  utter_invalid_pain_scale:
+  - text: "Va rugam sa introduceti o valoare intre 1 si 10."
+
+  utter_clarify_airway:
+  - text: "Ce probleme aveti cu caile respiratorii?"
+
+  utter_seizing:
+  - text: "Aveti convulsii?"
+    buttons:
+      - title: "Da"
+        payload: "desigur, am convulsii"
+      - title: "Nu"
+        payload: "nu am convulsii"
+      - title: "Vreau explicatii"
+        payload: "vreau explicatii despre convulsii"
+
+  utter_hemmorage:
+  - text: "Aveti hemoragie?"
+    buttons:
+      - title: "Da"
+        payload: "desigur ca am hemoragie"
+      - title: "Nu"
+        payload: "nu sufar de hemoragie"
+      - title: "Vreau explicatii"
+        payload: "vreau explicatii despre hemoragie"
+
+  utter_pain_hemmorage:
+  - text: "Cum evaluati durerea pe o scara de la 1 la 10?"
+
+  utter_pain:
+  - text: "Cum evaluati durerea pe o scara de la 1 la 10?"
+
+  utter_hemmorage_type:
+  - text: "Ce fel de hemoragie aveti?"
+
+  utter_gcs:
+  - text: "Cum evaluati nivelul de constienta pe o scala de la 1 la 15?"
+    buttons:
+      - title: "Sub 12 (inclusiv)"
+        payload: "GCS mic"
+      - title: "13 - 14"
+        payload: "GCS mediu"
+      - title: "15"
+        payload: "GCS mare"
+      - title: "Vreau explicatii"
+        payload: "vreau explicatii despre GCS"
+
+  utter_oxygen_saturation:
+  - text: "Ce saturatie de oxigen aveti?"
+    buttons:
+      - title: "Sub 90%"
+        payload: "saturatie oxigen mica"
+      - title: "90% - 92%"
+        payload: "saturatie oxigen medie"
+      - title: "Peste 92%"
+        payload: "saturatie oxigen mare"
+      - title: "Vreau explicatii"
+        payload: "vreau explicatii despre saturatia de oxigen"
+
+  utter_vital_signs:
+  - text: "Cum evaluati semnele vitale pentru varsta dumneavoastra?"
+    buttons:
+      - title: "Normale"
+        payload: "semne vitale normale"
+      - title: "Tensiune ridicata"
+        payload: "semne vitale anormale"
+      - title: "Puls ridicat"
+        payload: "semne vitale anormale"
+
+  utter_pain_scale:
+  - text: "Cum evaluati durerea pe o scara de la 1 la 10?"
+    buttons:
+      - title: "Severa (7-10)"
+        payload: "durere severa"
+      - title: "Moderata (4-6)"
+        payload: "durere moderata"
+      - title: "Usoara (1-3)"
+        payload: "durere usoara"
+      - title: "Nicio durere"
+        payload: "nicio durere"
+      - title: "Vreau explicatii"
+        payload: "vreau explicatii despre scara de la 1 la 10 a durerii"
+
+  utter_problem_duration:
+  - text: "De cate ore aveti aceasta problema?"
+    buttons:
+      - title: "Mai putin de 48 ore"
+        payload: "durata problema mica"
+      - title: "Mai mult de 48 ore"
+        payload: "durata problema mare"
+
+actions:
+  - action_utter_airway_description
+  - action_utter_hemmorage_description
+  - action_utter_seizing_description
+  - action_utter_pain_hemmorage_description
+  - action_utter_gcs_description
+  - action_utter_oxygen_saturation_description
+  - action_compensated_shock_orange
+  - action_compensated_shock_yellow
+  - action_utter_pain_scale_description
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+entities:
+  - compensated_shock
+
+slots:
+  compensated_shock:
+    type: bool
+    mappings:
+      - type: custom
+    influence_conversation: true
