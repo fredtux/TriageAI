@@ -71,13 +71,13 @@ nlu:
 
 - intent: user_seizing_good
   examples: |
-    - nu am convulsii
-    - nu sufar de convulsii
+    - nu am convulsii convulsii
+    - nu sufar de convulsii convulsii
 
 - intent: user_seizing_bad
   examples: |
-    - da, am convulsii
-    - desigur ca am convulsii
+    - da, am convulsii convulsii
+    - desigur ca am convulsii convulsii
 
 # Hemmorage
 - intent: hemmorage_red
@@ -320,3 +320,64 @@ nlu:
     - nu am dureri
     - nu ma doare nimic
     - nicio durere
+
+# Compensated shock
+# Orange
+- intent: user_compensated_shock_orange_wants_details
+  examples: |
+    - vreau explicatii despre socul compensat pe portocaliu
+    - imi doresc explicatii despre socul compensat pe portocaliu
+
+- intent: user_compensated_shock_orange_orange
+  examples: |
+    - da, am suferit soc compensat pe portocaliu
+    - da, socul este compensat pe portocaliu
+
+- intent: user_compensated_shock_orange_no_problem
+  examples: |
+    - nu, nu am suferit soc compensat pe portocaliu
+    - nu, socul nu este compensat pe portocaliu
+
+# Yellow
+- intent: user_compensated_shock_yellow_wants_details
+  examples: |
+    - vreau explicatii despre socul compensat pe galben
+    - imi doresc explicatii despre socul compensat pe galben
+
+- intent: user_compensated_shock_yellow_orange
+  examples: |
+    - da, am suferit soc compensat pe galben
+    - da, socul este compensat pe galben
+
+- intent: user_compensated_shock_yellow_no_problem
+  examples: |
+    - nu, nu am suferit soc compensat pe galben
+    - nu, socul nu este compensat pe galben
+
+# CRT
+- intent: user_crt_no_pain_wants_details
+  examples: |
+    - vreau explicatii despre CRT fara durere
+    - imi doresc explicatii despre CRT fara durere
+
+- intent: user_crt_no_pain_no_problem
+  examples: |
+    - timp crt normal fara durere
+    - normal fara durere
+
+- intent: user_crt_no_pain_orange
+  examples: |
+    - timp crt crescut fara durere
+    - crescut fara durere
+
+# Vital signs
+# Yellow
+- intent: user_vital_signs_yellow_has_problem
+  examples: |
+    - da, am probleme cu semnele vitale pe galben
+    - da, semnele vitale sunt alterate pe galben
+
+- intent: user_vital_signs_yellow_no_problem
+  examples: |
+    - nu, nu am probleme cu semnele vitale pe galben
+    - nu, semnele vitale nu sunt alterate pe galben

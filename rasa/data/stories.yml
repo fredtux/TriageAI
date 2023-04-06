@@ -227,11 +227,92 @@ stories:
     steps:
       - checkpoint: good_oxygen_saturation
       - intent: user_pain_scale_green
-      - action: utter_green_code
+      - action: utter_vital_signs_yellow
+      - checkpoint: vital_signs_yellow
   
   - story: pain_scale_no_problem
     steps:
       - checkpoint: good_oxygen_saturation
       - intent: user_pain_scale_no_problem
-      - action: utter_problem_duration
+      - action: utter_crt_no_pain
       - checkpoint: pain_no_problem
+
+# Vital signs
+# Yellow
+  - story: vital_signs_yellow_has_problem
+    steps:
+      - checkpoint: vital_signs_yellow
+      - intent: user_vital_signs_yellow_has_problem
+      - action: utter_yellow_code
+
+  - story: vital_signs_yellow_no_problem
+    steps:
+      - checkpoint: vital_signs_yellow
+      - intent: user_vital_signs_yellow_no_problem
+      - action: utter_green_code
+
+
+# Pain
+# No problem
+  - story: crt_wants_details
+    steps:
+      - checkpoint: pain_no_problem
+      - intent: user_crt_no_pain_wants_details
+      - action: action_crt_no_pain_description
+      - checkpoint: pain_no_problem
+
+  - story: crt_no_problem
+    steps:
+      - checkpoint: pain_no_problem
+      - intent: user_crt_no_pain_no_problem
+      - action: utter_vital_signs_no_problem
+      - checkpoint: vital_signs_no_problem
+
+  - story: crt_orange_code
+    steps:
+      - checkpoint: pain_no_problem
+      - intent: user_crt_no_pain_orange
+      - action: utter_orange_code
+
+# Compensated shock
+# Orange - Severe reported pain
+  - story: compensated_shock_orange_wants_details
+    steps:
+      - checkpoint: pain_scale_orange_code
+      - intent: user_compensated_shock_orange_wants_details
+      - action: action_utter_compensated_shock_orange_description
+      - checkpoint: pain_scale_orange_code
+
+  - story: compensated_shock_orange_orange_code
+    steps:
+      - checkpoint: pain_scale_orange_code
+      - intent: user_compensated_shock_orange_orange
+      - action: utter_orange_code
+
+  - story: compensated_shock_orange_no_problem
+    steps:
+      - checkpoint: pain_scale_orange_code
+      - intent: user_compensated_shock_orange_no_problem
+      - action: utter_crt_no_shock_orange
+      - checkpoint: shock_orange_no_problem
+
+# Yellow - Moderate reported pain
+  - story: compensated_shock_yellow_wants_details
+    steps:
+      - checkpoint: pain_scale_yellow_code
+      - intent: user_compensated_shock_yellow_wants_details
+      - action: action_utter_compensated_shock_yellow_description
+      - checkpoint: pain_scale_yellow_code
+
+  - story: compensated_shock_yellow_orange_code
+    steps:
+      - checkpoint: pain_scale_yellow_code
+      - intent: user_compensated_shock_yellow_orange
+      - action: utter_orange_code
+
+  - story: compensated_shock_yellow_no_problem
+    steps:
+      - checkpoint: pain_scale_yellow_code
+      - intent: user_compensated_shock_yellow_no_problem
+      - action: utter_crt_no_shock_yellow
+      - checkpoint: shock_yellow_no_problem

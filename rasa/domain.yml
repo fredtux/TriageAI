@@ -34,6 +34,17 @@ intents:
   - user_pain_scale_yellow
   - user_pain_scale_green
   - user_pain_scale_no_problem
+  - user_compensated_shock_orange_wants_details
+  - user_compensated_shock_orange_orange
+  - user_compensated_shock_orange_no_problem
+  - user_compensated_shock_yellow_wants_details
+  - user_compensated_shock_yellow_orange
+  - user_compensated_shock_yellow_no_problem
+  - user_crt_no_pain_wants_details
+  - user_crt_no_pain_no_problem
+  - user_crt_no_pain_orange
+  - user_vital_signs_yellow_has_problem
+  - user_vital_signs_yellow_no_problem
 
 responses:
   utter_greet:
@@ -83,11 +94,11 @@ responses:
   - text: "Aveti convulsii?"
     buttons:
       - title: "Da"
-        payload: "desigur, am convulsii"
+        payload: "desigur, am convulsii convulsii"
       - title: "Nu"
-        payload: "nu am convulsii"
+        payload: "nu am convulsii convulsii"
       - title: "Vreau explicatii"
-        payload: "vreau explicatii despre convulsii"
+        payload: "vreau explicatii despre convulsii convulsii"
 
   utter_hemmorage:
   - text: "Aveti hemoragie?"
@@ -109,7 +120,7 @@ responses:
   - text: "Ce fel de hemoragie aveti?"
 
   utter_gcs:
-  - text: "Cum evaluati nivelul de constienta pe o scala de la 1 la 15?"
+  - text: "Cum evaluati nivelul de constienta pe o scara de la 1 la 15?"
     buttons:
       - title: "Sub 12 (inclusiv)"
         payload: "GCS mic"
@@ -132,15 +143,25 @@ responses:
       - title: "Vreau explicatii"
         payload: "vreau explicatii despre saturatia de oxigen"
 
-  utter_vital_signs:
+  utter_vital_signs_yellow:
   - text: "Cum evaluati semnele vitale pentru varsta dumneavoastra?"
     buttons:
       - title: "Normale"
-        payload: "semne vitale normale"
+        payload: "nu, nu am probleme cu semnele vitale pe galben"
       - title: "Tensiune ridicata"
-        payload: "semne vitale anormale"
+        payload: "da, semnele vitale sunt alterate pe galben"
       - title: "Puls ridicat"
-        payload: "semne vitale anormale"
+        payload: "da, semnele vitale sunt alterate pe galben"
+
+  utter_vital_signs_no_problem:
+  - text: "Cum evaluati semnele vitale pentru varsta dumneavoastra?"
+    buttons:
+      - title: "Normale"
+        payload: "semne vitale normale fara problema"
+      - title: "Tensiune ridicata"
+        payload: "semne vitale anormale fara problema"
+      - title: "Puls ridicat"
+        payload: "semne vitale anormale fara problema"
 
   utter_pain_scale:
   - text: "Cum evaluati durerea pe o scara de la 1 la 10?"
@@ -164,6 +185,42 @@ responses:
       - title: "Mai mult de 48 ore"
         payload: "durata problema mare"
 
+  utter_crt_no_pain:
+  - text: "Ce tip de reumplere capilara aveti?"
+    buttons:
+      - title: ">2 secunde"
+        payload: "timp crt mare fara durere"
+      - title: "<= 2 secunde"
+        payload: "timp crt normal fara durere"
+      - title: "Nu stiu"
+        payload: "timp crt normal fara durere"
+      - title: "Vreau explicatii"
+        payload: "vreau explicatii despre crt fara durere"
+
+  utter_crt_no_shock_yellow:
+  - text: "Ce tip de reumplere capilara aveti?"
+    buttons:
+      - title: ">2 secunde"
+        payload: "timp crt mare cod galben"
+      - title: "<= 2 secunde"
+        payload: "timp crt normal cod galben"
+      - title: "Nu stiu"
+        payload: "timp crt normal cod galben"
+      - title: "Vreau explicatii"
+        payload: "vreau explicatii despre crt cod galben"
+
+  utter_crt_no_shock_orange:
+  - text: "Ce tip de reumplere capilara aveti?"
+    buttons:
+      - title: ">2 secunde"
+        payload: "timp crt mare cod portocaliu"
+      - title: "<= 2 secunde"
+        payload: "timp crt normal cod portocaliu"
+      - title: "Nu stiu"
+        payload: "timp crt normal cod portocaliu"
+      - title: "Vreau explicatii"
+        payload: "vreau explicatii despre crt cod portocaliu"
+
 actions:
   - action_utter_airway_description
   - action_utter_hemmorage_description
@@ -174,16 +231,19 @@ actions:
   - action_compensated_shock_orange
   - action_compensated_shock_yellow
   - action_utter_pain_scale_description
+  - action_utter_compensated_shock_yellow_description
+  - action_utter_compensated_shock_orange_description
+  - action_crt_no_pain_description
 
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 
 entities:
-  - compensated_shock
+  - pain_high
 
 slots:
-  compensated_shock:
+  pain_high:
     type: bool
     mappings:
       - type: custom

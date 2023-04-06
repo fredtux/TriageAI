@@ -162,31 +162,100 @@ class ActionUtterCompensatedShockOrangeDescription(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        SlotSet("compensated_shock", True)
+        SlotSet("pain_high", True)
         
+        # buttons = [
+        #     {"title": "> 2 secunde", "payload": "timp CRT mic"},
+        #     {"title": "<= 2 secunde", "payload": "timp CRT normal"}
+        # ]
+        # dispatcher.utter_message(text=f"Care este timpul CRT?", buttons=buttons)
         buttons = [
-            {"title": "> 2 secunde", "payload": "timp CRT mic"},
-            {"title": "<= 2 secunde", "payload": "timp CRT normal"}
+            {"title": "Da", "payload": "da, am suferit soc compensat pe portocaliu"},
+            {"title": "Nu", "payload": "nu, nu am suferit soc compensat pe portocaliu"}
         ]
-        dispatcher.utter_message(text=f"Care este timpul CRT?", buttons=buttons)
+        dispatcher.utter_message(text=f"Ati suferit soc compensat?", buttons=buttons)
+
 
         return []
     
 class ActionUtterCompensatedShockYellowDescription(Action):
 
     def name(self) -> Text:
-        return "action_compensated_shock_orange"
+        return "action_compensated_shock_yellow"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        SlotSet("compensated_shock", False)
+        SlotSet("pain_high", False)
+        
+        # buttons = [
+        #     {"title": "> 2 secunde", "payload": "timp CRT mic"},
+        #     {"title": "<= 2 secunde", "payload": "timp CRT normal"}
+        # ]
+        # dispatcher.utter_message(text=f"Care este timpul CRT?", buttons=buttons)
+        buttons = [
+            {"title": "Da", "payload": "da, am suferit soc compensat pe galben"},
+            {"title": "Nu", "payload": "nu, nu am suferit soc compensat pe galben"}
+        ]
+        dispatcher.utter_message(text=f"Ati suferit soc compensat?", buttons=buttons)
+
+        return []
+    
+class ActionUtterCompensatedShockOrangeDescription(Action):
+
+    def name(self) -> Text:
+        return "action_utter_compensated_shock_orange_description"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        description = AskOpenAI.Ask("termenul medical soc compensat")
         
         buttons = [
-            {"title": "> 2 secunde", "payload": "timp CRT mic"},
-            {"title": "<= 2 secunde", "payload": "timp CRT normal"}
+            {"title": "Da", "payload": "da, am suferit soc compensat pe portocaliu"},
+            {"title": "Nu", "payload": "nu, nu am suferit soc compensat pe portocaliu"}
         ]
-        dispatcher.utter_message(text=f"Care este timpul CRT?", buttons=buttons)
+        dispatcher.utter_message(text=f"Ati suferit soc compensat?", buttons=buttons)
+
+        return []
+    
+class ActionUtterCompensatedShockYellowDescription(Action):
+
+    def name(self) -> Text:
+        return "action_utter_compensated_shock_yellow_description"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        description = AskOpenAI.Ask("termenul medical soc compensat")
+        
+        buttons = [
+            {"title": "Da", "payload": "da, am suferit soc compensat pe galben"},
+            {"title": "Nu", "payload": "nu, nu am suferit soc compensat pe galben"}
+        ]
+        dispatcher.utter_message(text=f"Ati suferit soc compensat?", buttons=buttons)
+
+        return []
+    
+class ActionUtterCRTNoPainDescription(Action):
+
+    def name(self) -> Text:
+        return "action_crt_no_pain_description"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        description = AskOpenAI.Ask("termenul medical soc compensat")
+        
+        buttons = [
+            {"title": "> 2 secunde", "payload": "timp CRT mic fara durere"},
+            {"title": "<= 2 secunde", "payload": "timp CRT normal fara durere"},
+            {"title": "Nu stiu", "payload": "timp CRT normal fara durere"}
+        ]
+        dispatcher.utter_message(text=f"O scurta definitie: {description}.<br><br>Care este timpul CRT?", buttons=buttons)
 
         return []
