@@ -45,9 +45,6 @@ nlu:
   examples: |
     - Am o tuse
     - Respir greu
-    - Am dureri
-    - Am dureri
-    - Am dureri
     - Am dureri usoare
     - Am dureri moderate
     - Probleme usoare
@@ -105,8 +102,8 @@ nlu:
     - desigur ca imi curge sange
 - intent: user_hemmorage_wants_details
   examples: |
-    - vreau explicatii despre hemoragie
-    - imi doresc explicatii despre hemoragie
+    - vreau sa stiu despre hemoragie
+    - imi doresc sa stiu despre hemoragie
 
 # Pain
 ## Hemmorage
@@ -437,12 +434,24 @@ nlu:
     - cod galben timp crt mare mare mare fara soc galben
 
 # Maybe blue
-- intent: utter_blue_code
+- intent: small_duration_no_problem
   examples: |
-    - Mai mult de 48 ore
-    - mult mai mult de 48 ore
+    - durata problema mare
+    - durata problema foarte mare
 
 - intent: small_duration_problem
   examples: |
-    - Mai putin de 48 ore
-    - mult mai putin de 48 ore
+    - durata problema mica
+    - durata problema foarte mica
+
+# Easter cheese
+- intent: easter_cheese
+  examples: |
+    - vrei cascaval
+    - vrei cascaval?
+
+- intent: offer_cheese
+  examples: |
+    - sk111
+    - sk
+    - sk 111

@@ -24,7 +24,7 @@ services:
       - ./rasa/:/app
     command:
       - run
-      - --debug
+      # - --debug
     depends_on:
       - rasa_actions
   webapp:

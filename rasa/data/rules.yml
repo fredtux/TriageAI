@@ -12,6 +12,16 @@ rules:
   - intent: bot_challenge
   - action: bot_challenge
 
+- rule: Easter cheese
+  steps:
+  - intent: easter_cheese
+  - action: utter_easter_cheese
+
+- rule: Easter cheese 2
+  steps:
+  - intent: offer_cheese
+  - action: utter_call_the_police
+
 
 # - rule: Invalid pain scale
 #   steps:

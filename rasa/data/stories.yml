@@ -274,7 +274,8 @@ stories:
       - intent: user_unconsciusness_vital_signs_no_problem
       - action: utter_unconsciusness_vital_signs_no_problem
       - intent: user_unconsciusness_no_problem
-      - action: utter_green_code
+      - action: utter_problem_duration
+      - checkpoint: no_problem
 
   - story: unconsciusness_vital_signs_with_problem
     steps:
@@ -282,7 +283,7 @@ stories:
       - intent: user_unconsciusness_vital_signs_no_problem
       - action: utter_unconsciusness_vital_signs_no_problem
       - intent: user_unconsciusness_vital_signs_with_problem
-      - action: utter_yellow_code
+      - action: utter_green_code
   
   - story: unconsciusness_vital_signs_yes
     steps:
@@ -359,13 +360,13 @@ stories:
 # Maybe blue
   - story: crt_no_shock_blue
     steps:
-      - checkpoint: shock_yellow_no_problem
+      - checkpoint: no_problem
       - intent: small_duration_no_problem
       - action: utter_blue_code
   
   - story: crt_no_shock_blue_green_code
     steps:
-      - checkpoint: shock_yellow_no_problem
+      - checkpoint: no_problem
       - intent: small_duration_problem
       - action: utter_green_code
 

@@ -34,7 +34,7 @@ It uses 3 containers:
 - **webapp** for the Nginx server that serves a static page with the widget
 
 ### Start.sh
-Can be used with the _cleanup_ parameter to clean old models. It will train Rasa if no models are found, then it will run docker-compose for the _docker-compose.yml_ file.
+Can be used with the _cleanup_ parameter to remove old models. It will train Rasa if no models are found, then it will run docker-compose for the _docker-compose.yml_ file.
 
 ### Test.sh
 Executes docker-compose for the _docker-compose.test.yml_ file that contains 2 containers:
@@ -48,5 +48,9 @@ In order to check if all the stories result in a color code, run **stories_graph
 
 ### OpenAI API
 The _start.sh_ script will generate the .env file used by the **rasa_actions** container
+
+```bash
+python3 stories_graph.py
+```
 
 **Enjoy!!!**

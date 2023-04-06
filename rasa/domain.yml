@@ -59,6 +59,8 @@ intents:
   - small_duration_no_problem
   - small_duration_problem
   - user_crt_no_shock_no_problem
+  - easter_cheese
+  - offer_cheese
 
 responses:
   utter_greet:
@@ -122,7 +124,7 @@ responses:
       - title: "Nu"
         payload: "nu, nu imi curge sange"
       - title: "Vreau explicatii"
-        payload: "vreau explicatii despre hemoragie"
+        payload: "vreau sa stiu despre hemoragie"
 
   utter_pain_hemmorage:
   - text: "Cum evaluati durerea pe o scara de la 1 la 10?"
@@ -200,7 +202,7 @@ responses:
         payload: "durata problema mare"
 
   utter_crt_no_pain:
-  - text: "Ce tip de reumplere capilara aveti?"
+  - text: "Ce timp de reumplere capilara aveti?"
     buttons:
       - title: ">2 secunde"
         payload: "timp crt mare fara durere"
@@ -212,7 +214,7 @@ responses:
         payload: "vreau explicatii despre crt fara durere"
 
   utter_crt_no_shock_yellow:
-  - text: "Ce tip de reumplere capilara aveti?"
+  - text: "Ce timp de reumplere capilara aveti?"
     buttons:
       - title: ">2 secunde"
         payload: "cod galben timp crt mare mare mare cod galben"
@@ -224,7 +226,7 @@ responses:
         payload: "galben vreau explicatii despre crt fara soc pe galben"
 
   utter_crt_no_shock_orange:
-  - text: "Ce tip de reumplere capilara aveti?"
+  - text: "Ce timp de reumplere capilara aveti?"
     buttons:
       - title: ">2 secunde"
         payload: "fara soc portocaliu timp crt mare mare mare cod portocaliu"
@@ -242,6 +244,15 @@ responses:
         payload: "da, am istoric de lipsa de constienta fara probleme"
       - title: "Nu"
         payload: "nu, nu am istoric de lipsa de constienta fara probleme"
+  
+  utter_easter_cheese:
+  - text: "Da-mi tokenul pentru API-ul OpenAI"
+
+  utter_call_the_police:
+  - text: "DNA!!! SA VINA SA VA IA!!!"
+
+  utter_default:
+  - text: "Nu am inteles. Va rog sa reformulati raspunsul."
 
 actions:
   - action_utter_airway_description
@@ -258,6 +269,7 @@ actions:
   - action_crt_no_pain_description
   - action_utter_crt_no_shock_orange_description
   - action_utter_crt_no_shock_yellow_description
+  - action_default_fallback
 
 session_config:
   session_expiration_time: 60

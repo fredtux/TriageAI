@@ -301,3 +301,18 @@ class ActionUtterCRTNoShockYellowDescription(Action):
         dispatcher.utter_message(text=f"O scurta definitie: {description}.<br><br>Care este timpul CRT?", buttons=buttons)
 
         return []
+    
+class ActionUtterDefault(Action):
+
+    def name(self) -> Text:
+        return "action_default_fallback"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        description = AskOpenAI.Ask("termenul medical soc compensat")
+        
+        dispatcher.utter_message(text="Nu am inteles raspunsul. Va rog sa raspundeti mai clar.")
+
+        return []
