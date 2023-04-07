@@ -91,6 +91,8 @@ nlu:
     - hemoragie usoara
     - am hemoragie usoara
     - curge putin sange
+    - destul de usoara
+    - hemoragie destul de usoara
 
 - intent: user_hemmorage_good
   examples: |
