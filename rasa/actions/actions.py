@@ -43,7 +43,7 @@ class ActionUtterAirwayDescription(Action):
             {"title": "Nu", "payload": "respir bine"},
             {"title": "Vreau explicatii", "payload": "vreau explicatii despre caile respiratorii"}
         ]
-        dispatcher.utter_message(text=f"O scurta definitie: {description}.<br><br>Aveti probleme cu caile respiratorii?", buttons=buttons)
+        dispatcher.utter_message(text=f"O scurta definitie: {description}<br><br>Aveti probleme cu caile respiratorii?", buttons=buttons)
 
         return []
 
@@ -58,7 +58,7 @@ class ActionUtterHemmorageDescription(Action):
         
         description = AskOpenAI.Ask("hemoragie")
 
-        dispatcher.utter_message(text=f"O scurta definitie: {description}.<br><br>Aveti hemoragie?")
+        dispatcher.utter_message(text=f"O scurta definitie: {description}<br><br>Aveti hemoragie?")
 
         return []
     
@@ -73,7 +73,11 @@ class ActionUtterSeizingDescription(Action):
         
         description = AskOpenAI.Ask("convulsii")
 
-        dispatcher.utter_message(text=f"O scurta definitie: {description}.<br><br>Aveti convulsii?")
+        buttons = [
+            {"title": "Da", "payload": "sufar de convulsii"},
+            {"title": "Nu", "payload": "nu, nu sufar de convulsii"}
+        ]
+        dispatcher.utter_message(text=f"O scurta definitie: {description}<br><br>Aveti convulsii?", buttons=buttons)
 
         return []
     
@@ -88,7 +92,7 @@ class ActionUtterPainHemmorageDescription(Action):
         
         description = AskOpenAI.Ask("scara medicala a durerii de la 1 la 10")
 
-        dispatcher.utter_message(text=f"O scurta definitie: {description}.<br><br>Cum evaluati durerea pe o scara de la 1 la 10?")
+        dispatcher.utter_message(text=f"O scurta definitie: {description}<br><br>Cum evaluati durerea pe o scara de la 1 la 10?")
 
         return []
     
@@ -109,7 +113,7 @@ class ActionUtterPainScaleDescription(Action):
             {"title": "Usoara (1-3)", "payload": "durere usoara"},
             {"title": "Nicio durere", "payload": "nicio durere"}
         ]
-        dispatcher.utter_message(text=f"O scurta definitie: {description}.<br><br>Cum evaluati durerea pe o scara de la 1 la 10?", buttons=buttons)
+        dispatcher.utter_message(text=f"O scurta definitie: {description}<br><br>Cum evaluati durerea pe o scara de la 1 la 10?", buttons=buttons)
 
         return []
     
@@ -129,7 +133,7 @@ class ActionUtterGCSDescription(Action):
             {"title": "13 -14", "payload": "GCS mediu"},
             {"title": "15", "payload": "GCS mare"}
         ]
-        dispatcher.utter_message(text=f"O scurta definitie: {description}.<br><br>Cum evaluati nivelul de constienta?", buttons=buttons)
+        dispatcher.utter_message(text=f"O scurta definitie: {description}<br><br>Cum evaluati nivelul de constienta?", buttons=buttons)
 
         return []
     
@@ -149,7 +153,7 @@ class ActionUtterOxygenSaturationDescription(Action):
             {"title": "90 - 92%", "payload": "saturatie oxigen medie"},
             {"title": "Peste 92%", "payload": "saturatie oxigen mare"}
         ]
-        dispatcher.utter_message(text=f"O scurta definitie: {description}.<br><br>Cum evaluati saturatia de oxigen in sange?", buttons=buttons)
+        dispatcher.utter_message(text=f"O scurta definitie: {description}<br><br>Cum evaluati saturatia de oxigen in sange?", buttons=buttons)
 
         return []
     
@@ -258,7 +262,7 @@ class ActionUtterCRTNoPainDescription(Action):
             {"title": "<= 2 secunde", "payload": "timp CRT normal fara durere"},
             {"title": "Nu stiu", "payload": "timp CRT normal fara durere"}
         ]
-        dispatcher.utter_message(text=f"O scurta definitie: {description}.<br><br>Care este timpul CRT?", buttons=buttons)
+        dispatcher.utter_message(text=f"O scurta definitie: {description}<br><br>Care este timpul CRT?", buttons=buttons)
 
         return []
     
@@ -278,7 +282,7 @@ class ActionUtterCRTNoShockOrangeDescription(Action):
             {"title": "<= 2 secunde", "payload": "fara soc portocaliu timp crt normal cod portocaliu"},
             {"title": "Nu stiu", "payload": "fara soc portocaliu timp crt normal cod portocaliu"}
         ]
-        dispatcher.utter_message(text=f"O scurta definitie: {description}.<br><br>Care este timpul CRT?", buttons=buttons)
+        dispatcher.utter_message(text=f"O scurta definitie: {description}<br><br>Care este timpul CRT?", buttons=buttons)
 
         return []
     
@@ -298,7 +302,7 @@ class ActionUtterCRTNoShockYellowDescription(Action):
             {"title": "<= 2 secunde", "payload": "galben fara soc timp crt normal cod galben"},
             {"title": "Nu stiu", "payload": "galben fara soc timp crt normal cod galben"}
         ]
-        dispatcher.utter_message(text=f"O scurta definitie: {description}.<br><br>Care este timpul CRT?", buttons=buttons)
+        dispatcher.utter_message(text=f"O scurta definitie: {description}<br><br>Care este timpul CRT?", buttons=buttons)
 
         return []
     
