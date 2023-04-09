@@ -46,11 +46,11 @@ All containers used in the _docker-compose.test.yml_ are used in the production 
 ### Check stories
 In order to check if all the stories result in a color code, run **stories_graph.py** and check for red nodes. All the nodes with a path to the leaves will be in green and all the leaves in blue
 
-### OpenAI API
-The _start.sh_ script will generate the .env file used by the **rasa_actions** container
-
 ```bash
 python3 stories_graph.py
 ```
+
+### OpenAI API
+The _start.sh_ script will generate the .env file used by the **rasa_actions** container
 
 **Enjoy!!!**
